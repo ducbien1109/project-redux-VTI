@@ -1,0 +1,421 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,500;1,600&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+  color: #ffffff;
+}
+li{
+  list-style: none;
+}
+.slide-bar{
+  background-color: #100a0a;
+  border-radius: 10px;
+  padding-left: 20px;
+  font-size: 15px;
+  padding: 20px 30px;
+  font-family: 'Poppins', sans-serif;
+  position: fixed;
+}
+.slide-home-item{
+  padding-bottom: 20px;
+  color: #ffffff;
+
+}
+.slide-bar-home a{
+  padding: 30px;
+}
+.slide-bar-home{
+  color: #ffffff;
+}
+.library{
+  padding: 30px 0;
+  color: #ffffff;
+  display: flex;
+  gap: 20px;
+}
+.create-library{
+  display: flex;
+  justify-content: space-between;
+}
+.create-btn{
+  color: #ffffff;
+  background-color: gray;
+  border-radius: 10px;
+  padding: 5px 20px;
+  height: 130px;
+  margin: 20px 0;
+}
+.create-btn-playlist p{
+  padding: 16px 0;
+}
+.create-btn-playlist{
+  margin-bottom: 10px;
+}
+.header-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between ;
+}
+
+.header-menu-item {
+  display: flex;
+  gap: 10px;
+  padding-right: 20px;
+}
+header{
+  background-color:#202020 ;
+  width: 100%;
+  border-radius: 10px;
+  height: auto;
+}
+.header-menu-icon{
+  padding: 20px 20px;
+  color: #ffffff;
+  display: flex;
+  gap: 20px;
+}
+.header-menu-icon-left{
+  width: 35px;
+  height: 35px;
+  background-color: #131313;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.header-menu-icon-right{
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  background-color: #131313;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Show{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 25px;
+  color: #ffffff
+}
+.home{
+  background-color: #202020;
+}
+.home-list{
+  display: flex;
+  gap: 10px;
+}
+.footer{
+  display: flex;
+  border-bottom: 1PX solid rgb(209, 35, 35);
+  justify-content: space-between;
+  padding: 0 50px;
+  font-family: 'Poppins', sans-serif;
+
+}
+.list-footer{
+  color: #ffffff;
+  gap: 50px;
+  display: flex;
+  
+}
+
+.footer-icon ul{
+  display: flex;
+  gap: 30px;
+  font-size: 20px;
+
+}
+.footer-bottom{
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+  padding: 0 50px;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.popular-artists{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+  color: #ffffff;
+}
+.btnEdit{
+  display: none;
+}
+.list-data{
+  color: #ffffff; 
+  background: #181818;                         
+  border-Radius: 10px;
+  padding: 20px 23px;
+  margin-Bottom: 20px;
+}
+.list-data {
+  position: relative;
+  /* Đảm bảo rằng phần tử hover-form không bị tác động đến layout bên ngoài */
+}
+
+.hover-form {
+  display: none;
+  position: absolute;
+  bottom: 70px;
+  z-index: 999;
+  padding-left: 22px;
+  transition: 1s ease;
+ 
+  /* Đặt vị trí của hover-form và hiển thị khi isHovered là true */
+}
+.btn-home{
+  background: none;
+  border: none;
+  color: #ffffff;
+  padding-left: 30px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.btn{
+  animation:  shake 1s infinite linear;
+}
+.waviy{
+  position: relative;
+  -webkit-box-reflect: below -20px
+  linear-gradient(transparent,rgba(0,0,0,.2))
+ }
+ .waviy span{
+  background-image: linear-gradient(
+    to left,
+    #d63867 20%,#7a16f5 80%
+    
+);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+  font-size: 4rem;
+  text-transform: uppercase;
+  animation: waviy 1s infinite linear;
+  animation-delay: calc(.1s * var(--i));
+ }
+ @keyframes waviy {
+  0%,
+  40%,
+  100%{
+    transform: translateY(0);
+  }
+  20%{
+    transform: translateY(-20px);
+  }
+ }
+@keyframes shake{
+  10%{
+      transform: rotate(15deg);
+  }
+  20%{
+      transform: rotate(-15deg);
+  }
+  30%{
+      transform: rotate(15deg);
+  }
+  50%{
+      transform: rotate(0deg);
+  }
+}
+/* Styles for the Admin form */
+
+.custom-audio {
+  background: transparent;
+  border: none;
+  width: 100%;
+  /* Các thuộc tính CSS tùy chỉnh khác */
+}
+.playMusic{
+  text-align: end;
+}
+.playMusic .icon-start{
+  font-size: 25px;
+}
+.come-back{
+  text-align: end;
+  cursor: pointer;
+}
+/* detail */
+.detail-Radio{
+  width: 20%;
+  margin: 0 auto;
+  height: 300px;
+}
+.center-container {
+  color: #ffffff;
+  font-weight: bold;
+  margin: 0 auto;
+ text-align: center;
+  background-color: rgba(0,0,0,0.3);
+  width: 400px;
+  border-radius: 20px;
+}
+.test{
+  background-color: #121212;
+}
+.left-detail{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: #202020;
+  display: flex;
+  justify-content: center;
+
+}
+.icon-btn-edit{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 10px;
+}
+
+img { vertical-align:middle; }
+.box-zoom-out {
+  text-align: center;
+    height: auto;
+    margin: 10px auto;
+    overflow: hidden;
+    position: relative;
+}
+.box-zoom-out img {
+    max-width: 100%;
+    transition: all 1s;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+            border-radius: 10px;
+}
+.box-zoom-out:hover img {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+            border-radius:100%;
+
+}
+.img-detail{
+  border-radius: 100%;
+  animation: img 5s linear infinite;
+}
+@keyframes img{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+.btnPlayMusic{
+  padding: 6px 10px;
+  border: none;
+  background-color: #d63867;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 10px;
+}
+.animation{
+  width: 10px;
+  height: 10px;
+  display: block;
+  position: relative;
+  background-color: deeppink;
+  border-radius: 50px;
+  float:right;
+  top: 20px;
+  margin-right: 20px;
+}
+.animation-item{
+  width: 10px;
+  height: 10px;
+  display: block;
+  position: absolute;
+  background-color: deeppink;
+  border-radius: 50px;
+  animation: icon 1s linear infinite;
+}
+@keyframes icon{
+  from{
+    opacity: 0.5;
+  }
+  to{
+    transform: scale(6);
+    opacity: 0;
+  }
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: gray;
+}
+/* CSS cho phần form */
+.form-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  height: 100vh; 
+}
+.form {
+  width: 100%;
+  max-width: 400px; 
+}
+
+button{
+  cursor: pointer;
+}
+.radio {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+.footer-detail{
+  padding-top: 150px;
+}
+.color-detail-content{
+  display: inline-block;
+  font-size: 2rem;
+  text-transform: uppercase;
+  background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+  background-image: linear-gradient(
+    to right,
+    #c70a43 20%,#7a16f5 100%
+  );
+  animation: waviy 1s infinite;
+  animation-delay: calc(.1s * var(--i));
+  
+}
+ @keyframes waviy {
+  0%,
+  40%,
+  100%{
+    transform: translateY(0);
+  }
+  20%{
+    transform: translateY(-20px);
+  }
+ }
+
+
+@media (min-width: 320px) and (max-width: 480px){
+  .home-list{
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+  }
+}
