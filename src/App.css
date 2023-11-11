@@ -111,7 +111,7 @@ header{
 }
 .home-list{
   display: flex;
-  gap: 10px;
+  gap: 400px;
 }
 .footer{
   display: flex;
@@ -138,7 +138,7 @@ header{
   display: flex;
   justify-content: space-between;
   color: #ffffff;
-  padding: 0 50px;
+  padding: 50px 50px;
   font-family: 'Poppins', sans-serif;
 
 }
@@ -358,7 +358,7 @@ html, body {
   padding: 0;
 }
 body {
-  background: gray;
+  background: #121212;
 }
 /* CSS cho phần form */
 .form-container {
@@ -399,6 +399,12 @@ button{
   animation-delay: calc(.1s * var(--i));
   
 }
+.waviy-icon{
+  position: fixed;
+  margin: auto;
+
+  z-index: 99
+}
  @keyframes waviy {
   0%,
   40%,
@@ -409,13 +415,107 @@ button{
     transform: translateY(-20px);
   }
  }
-
-
+.mobile-radio{
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.mobile-artists{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+ 
+.waviy-icon{
+  position: relative;
+  -webkit-box-reflect: below 0px
+  linear-gradient(transparent,rgba(0,0,0,.2))
+}
+.waviy-icon span{
+  background-image: linear-gradient(
+    to left,
+    #d63867 20%,#7a16f5 80%
+    
+);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+  font-size: 4rem;
+  text-transform: uppercase;
+  animation: waviyIcon 1s infinite linear;
+  animation-delay: calc(.1s * var(--i));
+ }
+ @keyframes waviyIcon {
+  0%,
+  40%,
+  100%{
+    transform: translateY(0);
+  }
+  20%{
+    transform: translateY(-20px);
+  }
+ }
 @media (min-width: 320px) and (max-width: 480px){
+  .sidebar-mobile{
+    display: block;
+  }
+  .slide-bar{
+    width: 100%;
+    position: absolute;
+  }
+.show-slide-bar{
+  display: block;
+  width: 100%;
+}
   .home-list{
     flex-wrap: wrap;
-    flex-direction: column;
+    overflow: hidden;
+    gap: 1;
+  }
+  .header-menu{
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 100px;
+  }
+  .header-menu .header-menu-icon{
+    display: none;
     width: 100%;
     margin: auto;
   }
+  .footer{
+    flex-wrap: wrap;
+  }
+  .list-footer {
+    flex-wrap: wrap;
+}
+.mobile-radio{
+  margin: auto;
+  display: table;
+width: 100%;
+text-align: center;
+}
+.mobile-artists{
+  margin: auto;
+  display: table;
+width: 100%;
+text-align: center;
+}
+.icon-btn-edit{
+  justify-content: space-between;
+}
+.form-container{
+  flex-wrap: wrap;
+  display: flex;
+}
+.card{
+  width: 100%;
+}
+.mobile-sidebar{
+  display: none;
+}
+.footer-detail-mobile{
+  display: none;
+}
 }

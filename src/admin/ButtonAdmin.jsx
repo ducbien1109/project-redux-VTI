@@ -1,11 +1,13 @@
-import { Button } from 'antd';
+import { Button } from "antd";
 
-function ButtonAdmin(props){
-    const {name, color,clickBtn} = props
-    return(
-        <>
-            <Button type = {color} onClick = {clickBtn} danger>{name}</Button>
-        </>
-    )
+function ButtonAdmin(props) {
+  const { name, color, clickBtn } = props;
+  return (
+    <>
+      <Button type={color} onClick={clickBtn} danger>
+        {name}
+      </Button>
+    </>
+  );
 }
-export default ButtonAdmin
+export default ButtonAdmin;

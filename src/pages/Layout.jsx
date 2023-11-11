@@ -8,10 +8,12 @@ const Layout = () => {
   return (
     <div>
       <div className="home">
-        <div className="home-list">
-          <SlideBar />
-          <Content />
-        </div>
+        <section className="home-music">
+          <div className="home-list">
+            <SlideBar />
+            <Content />
+          </div>
+        </section>
         <Footer />
       </div>
       <Outlet />

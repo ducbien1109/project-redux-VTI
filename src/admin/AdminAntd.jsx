@@ -1,9 +1,9 @@
 import { Col, Form, Input, Row, Card, Button, Select } from "antd";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "../component/Loading";
-import { Await, useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import getPostApiPopularRadio from "../api/postApiPopularRadio";
 import { Link } from "react-router-dom";
 import { LeftOutlined } from "@ant-design/icons";
@@ -17,7 +17,7 @@ const AdminAntd = () => {
   const clearForm = () => {
     form.resetFields();
   };
-
+  const nameRef = useRef();
   const createMusic = async (value) => {
     value.selectedOption = selectedOption; // Thêm giá trị đã chọn từ Select vào dữ liệu
     console.log(value);
@@ -25,7 +25,7 @@ const AdminAntd = () => {
       setIsLoading(true);
     }, 1000);
     try {
-      setIsLoading(true)
+      setIsLoading(true);
       if (selectedOption === "popularArtist") {
         const res = await getPostApiPopularArtist.create(value);
       } else if (selectedOption === "popularRadio") {
@@ -44,7 +44,7 @@ const AdminAntd = () => {
 
   const updateMusic = async (value) => {
     value.selectedOption = selectedOption;
-      setIsLoading(true)
+    setIsLoading(true);
     console.log(value);
     try {
       setIsLoading(true);
@@ -110,17 +110,15 @@ const AdminAntd = () => {
     } else {
       setSelectedOption("popularRadio");
     }
-
-    // neu type = radio => goi api radio
-    // neu type = popularArtist => goi api popularArtist
   }, [id, type]);
 
   return (
     <div className="form-container">
       {isLoading && <Loading />}
       <Card
+        className="card"
         title={id ? "Edit Music" : "Add new Music"}
-        style={{ width: 800, margin: "0 auto" }}
+        style={{ margin: "0 auto" }}
       >
         <Form layout="vertical" form={form} onFinish={onsubmit}>
           <Row>
@@ -130,9 +128,17 @@ const AdminAntd = () => {
                 label="name"
                 rules={[
                   { required: true, message: "Please input your name music" },
+                  {
+                    min: 10,
+                    message: "phải trên 10 kí tự",
+                  },
+                  // {
+                  //   max: 15,
+                  //   message: "phải dưới 15 kí tự",
+                  // },
                 ]}
               >
-                <Input placeholder="Nhập tên bài hát" />
+                <Input placeholder="Nhập tên bài hát" ref={nameRef} />
               </Form.Item>
             </Col>
             <Col span={12}>

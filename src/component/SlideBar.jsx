@@ -5,10 +5,9 @@ import {
   RightOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
-import { Button, Modal, Upload, message } from "antd";
+import { Button, Modal } from "antd";
 import TextArea from "antd/es/input/TextArea";
-import { UploadOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Search from "./SearchMusic";
 function SlideBar() {
@@ -19,20 +18,24 @@ function SlideBar() {
     singer: "",
     image: "",
   });
-  const [dataForm, setDataForm] = useState('')
+  const [dataForm, setDataForm] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isSearch, setIsSearch] = useState(false)
+  const [isSearch, setIsSearch] = useState(false);
   const showModal = () => {
     setIsModalOpen(!isModalOpen);
   };
-  const handleChange = (e) => {
-    setFormData({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // const handleChange = (e) => {
+  //   setFormData({
+  //     ...form,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
+  useEffect(() => {
+    document.title = dataForm;
+    console.log(dataForm);
+  });
   const handleOk = (e) => {
-    setDataForm(form)
+    setDataForm([...dataForm, form]);
     setIsModalOpen(false);
     setFormData("");
   };
@@ -41,38 +44,28 @@ function SlideBar() {
     setIsModalOpen(false);
   };
   //image
-  const props = {
-    beforeUpload: (file) => {
-      const isPNG = file.type === "image/png";
-      if (!isPNG) {
-        message.error(`${file.name} is not a png file`);
-      }
-      return isPNG || Upload.LIST_IGNORE;
-    },
-    onChange: (info) => {
-      console.log(info.fileList);
-    },
-  };
   const handleEdit = () => {
-    navigate("/admin"); 
+    navigate("/admin");
   };
   //search
-  const handleButton = ()=>{
-    setIsSearch(!isSearch)
-  }
+  const handleButton = () => {
+    setIsSearch(!isSearch);
+  };
   return (
     <div>
       <div className="slide-bar">
         <div>
           <div className="slide-bar-home slide-home-item">
             <HomeOutlined />
-            <button onClick={handleEdit} className="btn-home">ADMIN</button>
+            <button onClick={handleEdit} className="btn-home">
+              ADMIN
+            </button>
           </div>
           <div className="slide-bar-home">
-            <SearchOutlined onClick={handleButton}/>
+            <SearchOutlined onClick={handleButton} />
             <a>SEARCH</a>
           </div>
-          {isSearch && <Search value={isSearch} />} 
+          {isSearch && <Search value={isSearch} />}
           {/* Nếu isSearch có giá trị true, thì thành phần <Search /> sẽ được hiển thị, còn nếu isSearch là false, thì <Search /> sẽ bị ẩn đi. */}
         </div>
         <div>
@@ -92,7 +85,7 @@ function SlideBar() {
                 <h4>Create your first playlist</h4>
                 <p>It's easy, well'll you</p>
                 <Button type="primary" onClick={showModal}>
-                  Create playlist
+                  Tiêu đề playlist
                 </Button>
               </div>
               <div className="create-btn create-btn-playlist">
@@ -110,15 +103,15 @@ function SlideBar() {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <label>id</label>
+        <label>Title</label>
         <TextArea
           placeholder="Autosize height based on content lines"
           autoSize
-          name="id" // Sử dụng thuộc tính `name` để xác định trường tương ứng trong state
-          value={form.id} // Liên kết giá trị với state
-          onChange={handleChange}
+          // name="id" // Sử dụng thuộc tính `name` để xác định trường tương ứng trong state
+          value={dataForm} // Liên kết giá trị với state
+          onChange={(e) => setDataForm(e.target.value)}
         />
-        <label>Image</label>
+        {/* <label>Image</label>
         <br />
         <Upload {...props}>
           <Button
@@ -146,21 +139,24 @@ function SlideBar() {
           name="singer" // Sử dụng thuộc tính `name` để xác định trường tương ứng trong state
           value={form.singer} // Liên kết giá trị với state
           onChange={handleChange}
-        />
+        /> */}
       </Modal>
-    <div style={{zIndex:'999'}}>
-    {dataForm && (
-      <div >Data
-        <ul>
-          <li style={{color:'red'}}>{dataForm.id}</li>
-          <li style={{color:'red'}}>{dataForm.name}</li>
-          <li>{dataForm.singer}</li>
-          <li><img src={dataForm.image}/></li>
-        </ul>
+      <div style={{ zIndex: "999" }}>
+        {/* {dataForm.map((item, index) => {
+          return (
+            <div key={index}>
+              <ul>
+                <li style={{ color: "red", zIndex: "999" }}>{item.id}</li>
+              </ul>
+            </div>
+          );
+        })} */}
       </div>
-    )}
-    </div>
     </div>
   );
 }
 export default SlideBar;
+// // <ul>
+// <li style={{color:'#ffffff',zIndex:'999', paddingTop:'500px'}}>{dataForm.id}</li>
+// <li style={{color:'red',zIndex:'999'}}>{dataForm.name}</li>
+// </ul>

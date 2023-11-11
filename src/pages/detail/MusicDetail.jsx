@@ -31,7 +31,9 @@ const MusicDetail = () => {
   };
   return (
     <div className="test">
-      <SlideBar />
+      <div className="mobile-sidebar">
+        <SlideBar />
+      </div>
       <div>
         <div className="center-container">
           <span className="animation">
@@ -42,13 +44,16 @@ const MusicDetail = () => {
               <LeftOutlined className="left-detail" />
             </Link>
             <img
+              style={{ borderRadius: "100px" }}
               src={detailArtist.image}
               alt="anh"
               width={220}
               height={220}
-              className="img-detail"
+              className={isPlay ? "img-detail" : ""}
             />
-            <Link to={`/my-admin/${detailArtist.id}`}><RightOutlined className="header-menu-icon-right" /></Link>
+            <Link to={`/my-admin/${detailArtist.id}`}>
+              <RightOutlined className="header-menu-icon-right" />
+            </Link>
             <p>đây là {detailArtist.detail}</p>
             <audio controls ref={audioRef} autoPlay={isPlay}>
               {isPlay ? (
@@ -60,7 +65,7 @@ const MusicDetail = () => {
             </button>
           </>
         </div>
-        <div className="footer-detail">
+        <div className="footer-detail footer-detail-mobile">
           <Footer />
         </div>
       </div>
